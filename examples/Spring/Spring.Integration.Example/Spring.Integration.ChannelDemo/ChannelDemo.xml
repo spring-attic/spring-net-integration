@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <!--<annotation-config/>-->
+
+	<si:channel id="even"/>
+  <si:channel id="odd"/>
+
+  <si:inbound-channel-adapter id="numbers" ref="counter" method="Next">
+    <si:poller max-messages-per-poll="1">
+      <!-- NOTE: Currently hardcoded for use of 'SECONDS' as time unit in parser -->
+      <si:interval-trigger interval="3" time-unit="SECONDS"/>
+		</si:poller>
+	</si:inbound-channel-adapter>
+
+  <si:router ref="parityResolver" method="GetParity" input-channel="numbers"/>
+
+  <si:service-activator ref="oddLogger" input-channel="odd" method="Log"/>
+
+  <si:service-activator ref="evenLogger" input-channel="even" method="Log"/>
+
+	<object id="counter" type="Spring.Integration.Example.IntervalOddEven.Counter, Spring.Integration.Example.IntervalOddEven"/>
+
+  <object id="parityResolver" type="Spring.Integration.Example.IntervalOddEven.ParityResolver, Spring.Integration.Example.IntervalOddEven"/>
+
+  <object id="oddLogger" 
+          type="Spring.Integration.Example.IntervalOddEven.OddLogger, Spring.Integration.Example.IntervalOddEven"
+          />
+
+  <object id="evenLogger" 
+          type="Spring.Integration.Example.IntervalOddEven.EvenLogger, Spring.Integration.Example.IntervalOddEven"/>
+
+</objects>

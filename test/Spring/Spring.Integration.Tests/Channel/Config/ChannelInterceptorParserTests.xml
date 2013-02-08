@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns:core="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+    <si:channel id="channelWithInterceptorRef">
+        <si:queue capacity="5"/>
+        <si:interceptors>
+            <si:ref object="interceptor"/>
+        </si:interceptors>
+    </si:channel>
+
+    <si:channel id="channelWithInterceptorInnerBean">
+        <si:queue capacity="5"/>
+        <si:interceptors>
+            <core:object type="Spring.Integration.Transformer.MessageTransformingChannelInterceptor">
+                <core:constructor-arg>
+                    <core:object type="Spring.Integration.Tests.Channel.Config.TestTransformer,Spring.Integration.Tests"/>
+                </core:constructor-arg>
+            </core:object>
+        </si:interceptors>
+    </si:channel>
+
+    <core:object id="interceptor" type="Spring.Integration.Tests.Config.TestChannelInterceptor,Spring.Integration.Tests"/>
+
+</objects>

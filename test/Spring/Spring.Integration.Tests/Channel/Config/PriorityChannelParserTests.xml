@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns:core="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="priorityChannelWithDefaultComparator">
+    <si:priority-queue capacity="10"/>
+  </si:channel>
+
+  <si:channel id="priorityChannelWithCustomComparator">
+    <si:priority-queue capacity="10" comparator="payloadComparator"/>
+  </si:channel>
+
+  <si:channel id="integerOnlyPriorityChannel" datatype="System.Int32">
+    <si:priority-queue capacity="10" comparator="payloadComparator"/>
+  </si:channel>
+
+  <core:object id="payloadComparator" type="Spring.Integration.Tests.Channel.MessagePayloadTestComparator"/>
+
+</objects>

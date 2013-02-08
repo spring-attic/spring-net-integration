@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="outputChannel">
+    <si:queue capacity="5"/>
+	</si:channel>
+  <si:channel id="discardChannel">
+    <si:queue capacity="5"/>
+	</si:channel>
+
+  <si:channel id="aggregatorWithReferenceInput"/>
+  <si:aggregator id="aggregatorWithReference" ref="aggregatorObject" input-channel="aggregatorWithReferenceInput"/>
+
+  <si:channel id="completelyDefinedAggregatorInput"/>
+  <si:aggregator id="completelyDefinedAggregator"
+		input-channel="completelyDefinedAggregatorInput"
+		output-channel="outputChannel"
+		discard-channel="discardChannel"
+		ref="aggregatorObject" 
+		completion-strategy="completionStrategy"
+		send-timeout="1.00:00:20"
+		send-partial-result-on-timeout="true"
+		reaper-interval="0:0:0.135"
+		tracked-correlation-id-capacity="99"
+		timeout="0:0:0.042"/>
+
+  <si:channel id="aggregatorWithReferenceAndMethodInput"/>
+  <si:aggregator id="aggregatorWithReferenceAndMethod"
+		ref="adderObject"
+		method="Add"
+		input-channel="aggregatorWithReferenceAndMethodInput"
+		output-channel="outputChannel"/>
+
+  <si:channel id="aggregatorWithPojoCompletionStrategyInput"/>
+  <si:aggregator id="aggregatorWithPojoCompletionStrategy"
+		input-channel="aggregatorWithPojoCompletionStrategyInput"
+		output-channel="outputChannel"
+		ref="adderObject"
+		method="Add"
+		completion-strategy="pojoCompletionStrategy"
+		completion-strategy-method="CheckCompleteness"/>
+
+	<object id="aggregatorObject" type="Spring.Integration.Tests.Config.TestAggregatorObject" />
+	<object id="adderObject" type="Spring.Integration.Tests.Config.Adder" />
+	<object id="completionStrategy" type="Spring.Integration.Tests.Config.TestCompletionStrategy" />
+	<object id="pojoCompletionStrategy" type="Spring.Integration.Tests.Config.MaxValueCompletionStrategy">
+		<constructor-arg value="10" />
+	</object>
+
+</objects>

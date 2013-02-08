@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="inputChannel"/>
+
+  <si:channel id="outputChannel">
+    <si:queue capacity="5"/>
+	</si:channel>
+
+  <si:channel id="discardChannel">
+    <si:queue capacity="5"/>
+	</si:channel>
+
+  <si:resequencer id="defaultResequencer" input-channel="inputChannel"/>
+
+  <si:channel id="inputChannel2"/>
+
+  <si:resequencer id="completelyDefinedResequencer" 
+		input-channel="inputChannel2"
+		output-channel="outputChannel" 
+		discard-channel="discardChannel"
+		send-timeout="1.00:00:20" 
+		send-partial-result-on-timeout="true"
+		reaper-interval="00:00:00.135" 
+		tracked-correlation-id-capacity="99"
+		timeout="00:00:00.042" 
+		release-partial-sequences="false"/>
+
+</objects>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="inputChannel"/>
+
+  <si:channel id="outputChannel" >
+    <si:queue capacity="10"/>
+  </si:channel>
+
+  <si:service-activator input-channel="inputChannel" output-channel="outputChannel" ref="helloService" method="SayHello"/>
+
+  <object id="helloService" type="Spring.Integration.Example.HelloWorld.HelloService" />
+</objects>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:poller id="poller" default="true">
+		<si:interval-trigger interval="50"/>
+	</si:poller>
+
+	<si:channel id="channel1"/>
+	<si:channel id="channel2">
+		<si:queue capacity="5"/>
+	</si:channel>
+	<si:channel id="channel3"/>
+	<si:channel id="channel4"/>
+	<si:channel id="channel5">
+		<si:queue capacity="5"/>
+	</si:channel>
+	<si:channel id="replyChannel">
+		<si:queue capacity="5"/>
+	</si:channel>
+
+	<si:service-activator input-channel="channel1" ref="testObject" method="Duplicate" output-channel="channel2"/>
+	<si:service-activator input-channel="channel2" ref="testObject" method="Duplicate" output-channel="channel3"/>
+	<si:service-activator input-channel="channel3" ref="testObject" method="Duplicate"/>
+	<si:service-activator input-channel="channel4" ref="testObject" method="Duplicate" output-channel="replyChannel"/>
+
+	<object id="testObject" type="Spring.Integration.Tests.Endpoint.TestObject"/>
+
+</objects>

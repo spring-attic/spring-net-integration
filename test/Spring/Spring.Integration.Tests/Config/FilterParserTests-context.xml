@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+  
+  <si:channel id="adapterInput" />
+  
+  <si:channel id="adapterOutput">
+    <si:queue capacity="1"/>
+	</si:channel>
+
+  <si:channel id="implementationOutput">
+    <si:queue capacity="1"/>
+	</si:channel>
+
+  <si:filter ref="selectorBean" method="HasText" input-channel="adapterInput" output-channel="adapterOutput"/>
+
+	<object id="selectorBean" type="Spring.Integration.Tests.Config.FilterParserTests+TestSelectorBean"/>
+
+  <si:filter ref="selectorImpl" input-channel="implementationInput" output-channel="implementationOutput"/>
+
+  <si:filter ref="selectorImpl" input-channel="exceptionInput" output-channel="implementationOutput" throw-exception-on-rejection="true"/>
+
+	<object id="selectorImpl" type="Spring.Integration.Tests.Config.FilterParserTests+TestSelectorImpl"/>
+
+</objects>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="testChannel">
+    <si:queue capacity="50"/>
+	</si:channel>
+
+  <si:service-activator input-channel="testChannel" ref="testHandler">
+    <si:poller>
+      <si:interval-trigger interval="100"/>
+		</si:poller>
+	</si:service-activator>
+
+	<object id="testHandler" type="Spring.Integration.Tests.Config.TestHandler">
+		<constructor-arg value="1"/>
+	</object>
+
+</objects>

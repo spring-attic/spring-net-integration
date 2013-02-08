@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" 
+         xmlns:si="http://www.springframework.net/integration"
+         xmlns:nms="http://www.springframework.net/integration/nms">
+
+
+
+  <si:channel id="requestChannel">
+    <si:queue/>
+  </si:channel>
+
+  <nms:inbound-gateway id="gatewayWithoutTransactionManager"
+	                     connection-factory="testConnectionFactory"
+	                     request-destination="testDestination"
+	                     request-channel="requestChannel"/>
+
+  <!--
+  <nms:inbound-gateway id="gatewayWithTransactionManager"
+	                     connection-factory="testConnectionFactory"
+	                     request-destination="testDestination"
+	                     request-channel="requestChannel"
+	                     transaction-manager="txManager"/>
+                       -->
+
+
+  <object id="txManager" type="Spring.Messaging.Nms.Connections.NmsTransactionManager, Spring.Messaging.Nms">
+    <property name="connectionFactory" ref="testConnectionFactory"/>
+  </object>
+  
+  <object id="testConnectionFactory" type="Spring.Messaging.Nms.Connections.SingleConnectionFactory, Spring.Messaging.Nms">
+    <constructor-arg>
+      <object type="Spring.Integration.Nms.StubConnection, Spring.Integration.Nms.Tests">
+        <constructor-arg value="message-driven-test"/>
+      </object>
+    </constructor-arg>
+  </object>
+
+  <object id="testDestination" type="Spring.Integration.Nms.StubDestination, Spring.Integration.Nms.Tests, Culture=neutral"/>
+
+
+</objects>

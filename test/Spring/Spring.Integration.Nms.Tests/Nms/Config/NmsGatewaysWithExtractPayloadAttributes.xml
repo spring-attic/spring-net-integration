@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" 
+         xmlns:si="http://www.springframework.net/integration"
+         xmlns:nms="http://www.springframework.net/integration/nms">
+
+
+
+  <si:channel id="requestChannel">
+    <si:queue capacity="10"/>
+  </si:channel>
+
+  <nms:inbound-gateway id="defaultGateway"
+                     request-destination="testDestination"
+                     request-channel="requestChannel"/>
+
+  <nms:inbound-gateway id="extractReplyPayloadTrue"
+	                     request-destination="testDestination"
+	                     request-channel="requestChannel"
+	                     extract-reply-payload="true"/>
+
+  <nms:inbound-gateway id="extractReplyPayloadFalse"
+	                     request-destination="testDestination"
+	                     request-channel="requestChannel"
+	                     extract-reply-payload="false"/>
+
+
+  <nms:inbound-gateway id="extractRequestPayloadTrue"
+	                     request-destination="testDestination"
+	                     request-channel="requestChannel"
+	                     extract-request-payload="true"/>
+
+  <nms:inbound-gateway id="extractRequestPayloadFalse"
+	                     request-destination="testDestination"
+	                     request-channel="requestChannel"
+	                     extract-request-payload="false"/>
+
+  
+  <!-- using default name -->
+  <object id="connectionFactory" type="Spring.Messaging.Nms.Connections.SingleConnectionFactory, Spring.Messaging.Nms">
+    <constructor-arg>
+      <object type="Spring.Integration.Nms.StubConnection, Spring.Integration.Nms.Tests">
+        <constructor-arg value="test-message"/>
+      </object>
+    </constructor-arg>
+  </object>
+
+  <object id="testDestination" type="Spring.Integration.Nms.StubDestination, Spring.Integration.Nms.Tests, Culture=neutral"/>
+
+
+</objects>

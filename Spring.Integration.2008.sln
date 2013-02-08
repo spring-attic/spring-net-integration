@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Integration.2008", "src\Spring\Spring.Integration\Spring.Integration.2008.csproj", "{ABE8EBAE-8BD6-469B-B687-CDA0EA48E69B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Integration.Tests.2008", "test\Spring\Spring.Integration.Tests\Spring.Integration.Tests.2008.csproj", "{94E4E1B4-D424-4EB9-BF34-2EE8CC3D7048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Integration.Example.HelloWorld", "examples\Spring\Spring.Integration.Example\Spring.Integration.Example.HelloWorld\Spring.Integration.Example.HelloWorld.csproj", "{E4FDC4AF-C1A9-4D57-B494-323DCFB92268}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{47E764E9-867E-4F82-AB7F-9736359B8AE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Integration.Example.IntervalOddEven", "examples\Spring\Spring.Integration.Example\Spring.Integration.Example.IntervalOddEven\Spring.Integration.Example.IntervalOddEven.csproj", "{8F531F5B-A5A1-4C2C-9A61-4B9F2C806DF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Integration.ChannelDemo", "examples\Spring\Spring.Integration.Example\Spring.Integration.ChannelDemo\Spring.Integration.ChannelDemo.csproj", "{079C3940-EC4B-45D8-98F4-7D0E517AB7A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Integration.Nms.2008", "src\Spring\Spring.Integration.Nms\Spring.Integration.Nms.2008.csproj", "{AE6191E1-26E4-4095-8E69-619CDFC08DC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Integration.Nms.Tests.2008", "test\Spring\Spring.Integration.Nms.Tests\Spring.Integration.Nms.Tests.2008.csproj", "{77BC5B24-91EB-4E26-B164-F2C7AA388502}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABE8EBAE-8BD6-469B-B687-CDA0EA48E69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE8EBAE-8BD6-469B-B687-CDA0EA48E69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE8EBAE-8BD6-469B-B687-CDA0EA48E69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE8EBAE-8BD6-469B-B687-CDA0EA48E69B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94E4E1B4-D424-4EB9-BF34-2EE8CC3D7048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E4E1B4-D424-4EB9-BF34-2EE8CC3D7048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E4E1B4-D424-4EB9-BF34-2EE8CC3D7048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E4E1B4-D424-4EB9-BF34-2EE8CC3D7048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4FDC4AF-C1A9-4D57-B494-323DCFB92268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4FDC4AF-C1A9-4D57-B494-323DCFB92268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4FDC4AF-C1A9-4D57-B494-323DCFB92268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4FDC4AF-C1A9-4D57-B494-323DCFB92268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F531F5B-A5A1-4C2C-9A61-4B9F2C806DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F531F5B-A5A1-4C2C-9A61-4B9F2C806DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F531F5B-A5A1-4C2C-9A61-4B9F2C806DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F531F5B-A5A1-4C2C-9A61-4B9F2C806DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{079C3940-EC4B-45D8-98F4-7D0E517AB7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{079C3940-EC4B-45D8-98F4-7D0E517AB7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{079C3940-EC4B-45D8-98F4-7D0E517AB7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{079C3940-EC4B-45D8-98F4-7D0E517AB7A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6191E1-26E4-4095-8E69-619CDFC08DC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6191E1-26E4-4095-8E69-619CDFC08DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6191E1-26E4-4095-8E69-619CDFC08DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6191E1-26E4-4095-8E69-619CDFC08DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77BC5B24-91EB-4E26-B164-F2C7AA388502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77BC5B24-91EB-4E26-B164-F2C7AA388502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77BC5B24-91EB-4E26-B164-F2C7AA388502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77BC5B24-91EB-4E26-B164-F2C7AA388502}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E4FDC4AF-C1A9-4D57-B494-323DCFB92268} = {47E764E9-867E-4F82-AB7F-9736359B8AE8}
+		{8F531F5B-A5A1-4C2C-9A61-4B9F2C806DF1} = {47E764E9-867E-4F82-AB7F-9736359B8AE8}
+		{079C3940-EC4B-45D8-98F4-7D0E517AB7A4} = {47E764E9-867E-4F82-AB7F-9736359B8AE8}
+	EndGlobalSection
+EndGlobal

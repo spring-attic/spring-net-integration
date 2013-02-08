@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:objects xmlns:core="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="filterInput"/>
+
+  <si:channel id="pollableInput">
+    <si:queue/>
+	</si:channel>
+
+  <si:channel id="output">
+    <si:queue/>
+	</si:channel>
+
+  <si:channel id="replyOutput">
+    <si:queue/>
+	</si:channel>
+
+  <si:chain input-channel="filterInput" output-channel="output">
+    <si:filter ref="typeSelector"/>
+    <si:service-activator ref="testHandler"/>
+	</si:chain>
+
+  <si:chain input-channel="headerEnricherInput">
+    <si:header-enricher reply-channel="replyOutput" correlation-id="ABC">
+      <si:header name="testValue" value="XYZ"/>
+      <si:header name="testRef" ref="testHeaderValue"/>
+		</si:header-enricher>
+    <si:service-activator ref="testHandler"/>
+	</si:chain>
+
+  <si:chain input-channel="pollableInput" output-channel="output">
+    <si:poller>
+      <si:interval-trigger interval="10000"/>
+		</si:poller>
+    <si:filter ref="typeSelector"/>
+    <si:service-activator ref="testHandler"/>
+	</si:chain>
+
+  <core:object id="testHeaderValue" type="System.Int32" factory-method="Parse">
+    <core:constructor-arg value="123" />
+  </core:object>
+  
+  <core:object id="typeSelector" type="Spring.Integration.Selector.PayloadTypeSelector">
+    <core:constructor-arg value="System.String"/>
+	</core:object>
+
+  <core:object id="testHandler" type="Spring.Integration.Tests.Config.TestHandler">
+    <core:constructor-arg value="1"/>
+    <core:property name="replyMessageText" value="foo"/>
+	</core:object>
+
+</core:objects>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="capacityChannel">
+    <si:queue capacity="10"/>
+	</si:channel>
+
+  <si:channel id="defaultChannel"/>
+
+  <si:publish-subscribe-channel id="publishSubscribeChannel"/>
+
+  <si:publish-subscribe-channel id="publishSubscribeChannelWithTaskExecutorRef" task-executor="taskExecutor"/>
+
+  <si:channel id="integerChannel" datatype="System.Int32">
+    <si:queue capacity="10"/>
+	</si:channel>
+
+  <si:channel id="numberChannel" datatype="System.Double">
+    <si:queue capacity="10"/>
+	</si:channel>
+
+  <si:channel id="stringOrNumberChannel" datatype="System.String,System.Double">
+    <si:queue capacity="10"/>
+	</si:channel>
+
+  <object id="taskExecutor" type="Spring.Threading.Execution.Executors,Spring.Threading" factory-method="NewSingleThreadExecutor" />
+
+</objects>

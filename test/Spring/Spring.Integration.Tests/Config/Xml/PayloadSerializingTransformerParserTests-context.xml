@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="directInput"/>
+
+  <si:channel id="queueInput">
+    <si:queue capacity="1"/>
+	</si:channel>
+
+	<si:channel id="output">
+    <si:queue capacity="1"/>
+	</si:channel>
+
+  <si:payload-serializing-transformer input-channel="directInput" output-channel="output"/>
+
+  <si:payload-serializing-transformer input-channel="queueInput" output-channel="output">
+    <si:poller>
+      <si:interval-trigger interval="10000"/>
+		</si:poller>
+	</si:payload-serializing-transformer>
+
+</objects>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+ * Copyright 2002-2008 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<chapter version="5" xml:id="introduction"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:ns6="http://www.w3.org/1999/xlink"
+         xmlns:ns5="http://www.w3.org/2000/svg"
+         xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+         xmlns:ns3="http://www.w3.org/1999/xhtml"
+         xmlns:ns="http://docbook.org/ns/docbook">
+  <title>Spring Integration Overview</title>
+
+  <sect1 xml:id="introduction-overview">
+    <title>Overview</title>
+
+    <para>Spring Integration is a new addition to the Spring portfolio. It
+    provides an extension of the Spring programming model to support the
+    well-known Enterprise Integration Patterns while building on the Spring
+    Framework's existing support for enterprise integration. It enables simple
+    messaging within Spring-based applications and integrates with external
+    systems via simple adapters. Those adapters provide a higher-level of
+    abstraction over Spring's support for remoting, messaging, and scheduling.
+    Spring Integration's primary goal is to provide a simple model for
+    building enterprise integration solutions while maintaining the separation
+    of concerns that is essential for producing maintainable, testable
+    code.</para>
+
+    <sect2>
+      <title>Background</title>
+
+      <para>One of the key themes of the Spring Framework is inversion of
+      control. In its broadest sense, this means that the framework handles
+      responsibilities on behalf of the components that are managed within its
+      context. The components themselves are simplified since they are
+      relieved of those responsibilities. For example, dependency injection
+      relieves the components of the responsibility of locating or creating
+      their dependencies. Likewise, aspect-oriented programming relieves
+      business components of generic cross-cutting concerns by modularizing
+      them into reusable aspects. In each case, the end result is a system
+      that is easier to test, understand, maintain, and extend. </para>
+
+      <para>Furthermore, the Spring framework and portfolio provide a
+      comprehensive programming model for building enterprise applications.
+      Developers benefit from the consistency of this model and especially the
+      fact that it is based upon well-established best practices such as
+      programming to interfaces and favoring composition over inheritance.
+      Spring's simplified abstractions and powerful support libraries boost
+      developer productivity while simultaneously increasing the level of
+      testability and portability. </para>
+
+      <para>Spring Integration is a new member of the Spring Extension project
+      motivated by these same goals and principles. It extends the Spring
+      programming model into the messaging domain and builds upon Spring's
+      existing enterprise integration support to provide an even higher level
+      of abstraction. It supports message-driven architectures where inversion
+      of control applies to runtime concerns, such as when certain business
+      logic should execute and where the response should be sent. It supports
+      routing and transformation of messages so that different transports and
+      different data formats can be integrated without impacting testability.
+      In other words, the messaging and integration concerns are handled by
+      the framework, so business components are further isolated from the
+      infrastructure and developers are relieved of complex integration
+      responsibilities. </para>
+
+      <para>As an extension of the Spring programming model, Spring
+      Integration provides a wide variety of configuration options including
+      annotations, XML with namespace support, XML with generic "bean"
+      elements, and of course direct usage of the underlying API. That API is
+      based upon well-defined strategy interfaces and non-invasive, delegating
+      adapters. Spring Integration's design is inspired by the recognition of
+      a strong affinity between common patterns within Spring and the
+      well-known <link ns6:href="http://www.eaipatterns.com/">Enterprise
+      Integration Patterns</link> as described in the book of the same name by
+      Gregor Hohpe and Bobby Woolf (Addison Wesley, 2004). Developers who have
+      read that book should be immediately comfortable with the Spring
+      Integration concepts and terminology. </para>
+    </sect2>
+  </sect1>
+</chapter>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns:core="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+  <si:poller id="poller">
+    <si:interval-trigger interval="5000"/>
+    <si:advice-chain>
+      <si:ref object="adviceBean1"/>
+			<core:object type="Spring.Integration.Tests.Config.Xml.TestAdviceObject">
+        <core:constructor-arg value="2"/>
+			</core:object>
+			<si:ref object="adviceBean3"/>
+		</si:advice-chain>
+	</si:poller>
+
+  <core:object id="adviceBean1" type="Spring.Integration.Tests.Config.Xml.TestAdviceObject">
+    <core:constructor-arg value="1"/>
+	</core:object>
+
+  <core:object id="adviceBean3" type="Spring.Integration.Tests.Config.Xml.TestAdviceObject">
+    <core:constructor-arg value="3"/>
+	</core:object>
+</objects>

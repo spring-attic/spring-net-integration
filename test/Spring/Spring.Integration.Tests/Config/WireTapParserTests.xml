@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="wireTapChannel">
+    <si:queue capacity="1"/>
+  </si:channel>
+
+  <si:channel id="noSelectors">
+    <si:queue capacity="10"/>
+    <si:interceptors>
+      <si:wire-tap channel="wireTapChannel"/>
+    </si:interceptors>
+  </si:channel>
+
+  <si:channel id="accepting">
+    <si:queue capacity="10"/>
+    <si:interceptors>
+      <si:wire-tap channel="wireTapChannel" selector="acceptingSelector"/>
+    </si:interceptors>
+  </si:channel>
+
+  <si:channel id="rejecting">
+    <si:queue capacity="10"/>
+    <si:interceptors>
+      <si:wire-tap channel="wireTapChannel" selector="rejectingSelector"/>
+    </si:interceptors>
+  </si:channel>
+
+  <si:channel id="timeout">
+    <si:queue capacity="10"/>
+    <si:interceptors>
+      <si:wire-tap channel="wireTapChannel" timeout="0:0:1.2340"/>
+    </si:interceptors>
+  </si:channel>
+
+  <object id="acceptingSelector" type="Spring.Integration.Tests.Config.TestSelector">
+    <constructor-arg value="true"/>
+  </object>
+
+  <object id="rejectingSelector" type="Spring.Integration.Tests.Config.TestSelector">
+    <constructor-arg value="false"/>
+  </object>
+
+</objects>

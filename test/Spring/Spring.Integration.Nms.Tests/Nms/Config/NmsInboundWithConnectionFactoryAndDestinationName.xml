@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" 
+         xmlns:integration="http://www.springframework.net/integration"
+         xmlns:nms="http://www.springframework.net/integration/nms">
+
+  <nms:inbound-channel-adapter channel="output"
+                               connection-factory="testConnectionFactory" 
+                               destination-name="testDestinationName"/>
+
+  <integration:channel id="output">
+    <integration:queue capacity="1"/>
+  </integration:channel>
+
+  <object id="testConnectionFactory" type="Spring.Messaging.Nms.Connections.SingleConnectionFactory, Spring.Messaging.Nms">
+    <constructor-arg>
+      <object type="Spring.Integration.Nms.StubConnection, Spring.Integration.Nms.Tests">
+        <constructor-arg value="polling-test"/>
+      </object>
+    </constructor-arg>
+  </object>
+
+
+  <integration:poller id="poller" default="true">
+    <integration:interval-trigger interval="500"/>
+  </integration:poller>
+
+</objects>

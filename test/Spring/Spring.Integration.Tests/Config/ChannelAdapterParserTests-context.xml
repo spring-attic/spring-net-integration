@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:si="http://www.springframework.net/integration">
+
+  <si:channel id="queueChannel">
+    <si:queue capacity="10"/>
+	</si:channel>
+
+  <si:outbound-channel-adapter id="outboundWithImplicitChannel" ref="consumer"/>
+
+  <si:outbound-channel-adapter id="methodInvokingConsumer" ref="testObject" method="Store"/>
+
+  <si:inbound-channel-adapter id="methodInvokingSource" ref="testObject" method="GetMessage" channel="queueChannel" auto-startup="false">
+    <si:poller max-messages-per-poll="1">
+      <si:interval-trigger interval="99" time-unit="MILLISECONDS"/>
+		</si:poller>
+	</si:inbound-channel-adapter>
+
+	<object id="consumer" type="Spring.Integration.Tests.Config.TestConsumer"/>
+
+	<object id="testObject" type="Spring.Integration.Tests.Config.TestObject"/>
+
+</objects>

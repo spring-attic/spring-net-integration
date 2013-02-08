@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE book  [
+  <!ENTITY overview             SYSTEM "overview.xml">
+  <!ENTITY message              SYSTEM "message.xml">
+  <!ENTITY channel              SYSTEM "channel.xml">
+  <!ENTITY endpoint             SYSTEM "endpoint.xml">
+  <!ENTITY service-activator    SYSTEM "service-activator.xml">
+  <!ENTITY channel-adapter      SYSTEM "channel-adapter.xml">
+  <!ENTITY router               SYSTEM "router.xml"   >
+  <!ENTITY filter               SYSTEM "filter.xml"   >
+  <!ENTITY transformer          SYSTEM "transformer.xml">
+  <!ENTITY splitter             SYSTEM "splitter.xml" >
+  <!ENTITY aggregator           SYSTEM "aggregator.xml">
+  <!ENTITY resequencer          SYSTEM "resequencer.xml">
+  <!ENTITY delayer              SYSTEM "delayer.xml"  >
+  <!ENTITY chain                SYSTEM "chain.xml"    >
+  <!ENTITY bridge               SYSTEM "bridge.xml"   >
+  <!ENTITY gateway              SYSTEM "gateway.xml"  >
+  <!ENTITY file                 SYSTEM "file.xml"     >
+  <!ENTITY nms                  SYSTEM "nms.xml"      >
+  <!ENTITY ws                   SYSTEM "ws.xml"       >
+  <!ENTITY remoting             SYSTEM "remoting.xml" >
+  <!ENTITY httpinvoker          SYSTEM "httpinvoker.xml">
+  <!ENTITY http                 SYSTEM "http.xml"     >
+  <!ENTITY mail                 SYSTEM "mail.xml"     >
+  <!ENTITY stream               SYSTEM "stream.xml"   >
+  <!ENTITY event                SYSTEM "event.xml"    >
+  <!ENTITY xml                  SYSTEM "xml.xml"      >
+  <!ENTITY security             SYSTEM "security.xml" >
+  <!ENTITY samples              SYSTEM "samples.xml"  >
+  <!ENTITY configuration        SYSTEM "configuration.xml">
+  <!ENTITY resources            SYSTEM "resources.xml">
+]>
+<book xmlns="http://docbook.org/ns/docbook" 
+      xmlns:xlink="http://www.w3.org/1999/xlink" 
+      xmlns:xi="http://docbook.org/ns/docbook/xi" 
+      version="5.0" 
+      xml:lang="en">
+  <info>
+    <title>The Spring Integration Framework</title>
+    <subtitle>Reference Documentation</subtitle>
+    <releaseinfo>Version 1.0.0 M1</releaseinfo>
+    <pubdate>Last Updated March 2, 2008 <ulink url="http://www.springframework.net/si/doc-latest/reference/html/index.html">(Latest documentation)</ulink></pubdate>
+    <authorgroup>
+      <author>
+        <firstname>Andreas</firstname>
+        <surname>Dohring</surname>
+      </author>
+      <author>
+        <firstname>Mark</firstname>
+        <surname>Pollack</surname>
+      </author>
+      <author>
+        <firstname>The Spring Integration</firstname>
+        <surname>Java Team</surname>
+      </author>
+    </authorgroup>
+    <legalnotice>
+      <para>
+        Copies of this document may be made for your own use and for
+        distribution to others, provided that you do not charge any fee for such
+        copies and further provided that each copy contains this Copyright
+        Notice, whether distributed in print or electronically.
+      </para>
+    </legalnotice>
+  </info>
+  <toc/>
+  
+  &overview;
+  &message;
+  &channel;
+  &endpoint;
+  &service-activator;
+  &channel-adapter;
+  &router;
+  &filter;
+  &transformer;
+  &splitter;
+  &aggregator;
+  &resequencer;
+  &delayer;
+  &chain;
+  &bridge;
+  &gateway;
+  &file;
+  &nms;
+  &ws;
+  &remoting;
+  &httpinvoker;
+  &http;
+  &mail;
+  &stream;
+  &event;
+  &xml;
+  &security;
+  &samples;
+  &configuration;
+  &resources;
+<!--
+  <xi:include href="./overview.xml"/>
+  <xi:include href="./message.xml"/>
+  <xi:include href="./channel.xml"/>
+  <xi:include href="./endpoint.xml"/>
+  <xi:include href="./service-activator.xml"/>
+  <xi:include href="./channel-adapter.xml"/>
+  <xi:include href="./router.xml"/>
+  <xi:include href="./filter.xml"/>
+  <xi:include href="./transformer.xml"/>
+  <xi:include href="./splitter.xml"/>
+  <xi:include href="./aggregator.xml"/>
+  <xi:include href="./resequencer.xml"/>
+  <xi:include href="./delayer.xml"/>
+  <xi:include href="./chain.xml"/>
+  <xi:include href="./bridge.xml"/>
+  <xi:include href="./gateway.xml"/>
+  <xi:include href="./file.xml"/> 
+  <xi:include href="./jms.xml"/>
+  <xi:include href="./ws.xml"/>
+  <xi:include href="./rmi.xml"/>
+  <xi:include href="./httpinvoker.xml"/> 
+  <xi:include href="./http.xml"/>
+  <xi:include href="./mail.xml"/>
+  <xi:include href="./stream.xml"/>
+  <xi:include href="./event.xml"/> 
+  <xi:include href="./xml.xml"/>
+  <xi:include href="./security.xml"/>
+  <xi:include href="./samples.xml"/>
+  <xi:include href="./configuration.xml"/>
+  <xi:include href="./resources.xml"/>
+  -->
+  <!--
+  &background;
+  -->
+  <!--
+  <part xml:id="se-int-quickstarts">
+    <title>Quickstart applications</title>
+    <partintro>
+      <para>
+        This part of the reference documentation covers
+        the quickstart applications included with
+        Spring Integration for .NET that demonstrate features in a code centric
+        manner.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <xref linkend="quickstarts" />
+        </listitem>
+      </itemizedlist>
+    </partintro>
+    &quickstarts;
+  </part>
+    -->
+
+
+</book>
