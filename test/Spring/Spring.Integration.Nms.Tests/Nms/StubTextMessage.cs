@@ -21,6 +21,7 @@
 using System;
 using Apache.NMS;
 using Apache.NMS.ActiveMQ.OpenWire;
+using Apache.NMS.Util;
 
 namespace Spring.Integration.Nms
 {
@@ -63,6 +64,26 @@ namespace Spring.Integration.Nms
             
         }
 
+        /// <summary>
+        /// Clears out the message body. Clearing a message's body does not clear its header
+        ///              values or property entries.
+        ///              If this message body was read-only, calling this method leaves the message body in
+        ///              the same state as an empty body in a newly created message.
+        /// </summary>
+        public void ClearBody()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Clears a message's properties.
+        ///              The message's header fields and body are not cleared.
+        /// </summary>
+        public void ClearProperties()
+        {
+            throw new NotImplementedException();
+        }
+
         public IPrimitiveMap Properties
         {
             get { return properties; }
@@ -74,6 +95,11 @@ namespace Spring.Integration.Nms
             get { return correlationId; }
             set { correlationId = value; }
         }
+
+        /// <summary>
+        /// The destination of the message.  This property is set by the IMessageProducer.
+        /// </summary>
+        IDestination IMessage.NMSDestination { get; set; }
 
         public IDestination NMSDestination
         {
@@ -104,6 +130,11 @@ namespace Spring.Integration.Nms
             set {  }
         }
 
+        /// <summary>
+        /// Returns true if this message has been redelivered to this or another consumer before being acknowledged successfully.
+        /// </summary>
+        bool IMessage.NMSRedelivered { get; set; }
+
         public bool NMSRedelivered
         {
             get { return false; }
@@ -114,6 +145,12 @@ namespace Spring.Integration.Nms
             get { return replyTo; }
             set { replyTo = value; }
         }
+
+        /// <summary>
+        /// The timestamp of when the message was pubished in UTC time.  If the publisher disables setting
+        ///             the timestamp on the message, the time will be set to the start of the UNIX epoc (1970-01-01 00:00:00).
+        /// </summary>
+        DateTime IMessage.NMSTimestamp { get; set; }
 
         public DateTime NMSTimestamp
         {

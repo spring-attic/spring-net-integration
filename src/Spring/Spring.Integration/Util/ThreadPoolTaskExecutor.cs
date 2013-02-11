@@ -24,7 +24,6 @@ using Spring.Objects.Factory;
 using Spring.Threading;
 using Spring.Threading.Collections.Generic;
 using Spring.Threading.Execution;
-using Spring.Threading.Execution.ExecutionPolicy;
 using Spring.Util;
 
 namespace Spring.Integration.Util {
@@ -52,9 +51,10 @@ namespace Spring.Integration.Util {
     /// </summary>
     /// <author>Juergen Hoeller</author>
     /// <author>Andreas Döhring (.NET)</author>
+    /// <author>Anindya Chatterjee (.NET)</author>
     public class ThreadPoolTaskExecutor : CustomizableThreadFactory, /*SchedulingTaskExecutor,*/ IExecutor, IObjectNameAware, IInitializingObject, IDisposable {
 
-        protected ILog logger = LogManager.GetLogger(typeof(ThreadPoolTaskExecutor).GetType());
+        protected ILog logger = LogManager.GetLogger(typeof(ThreadPoolTaskExecutor));
 
         private readonly object _poolSizeMonitor = new Object();
 
@@ -70,7 +70,7 @@ namespace Spring.Integration.Util {
 
         private IThreadFactory _threadFactory;
 
-        private IRejectedExecutionHandler _rejectedExecutionHandler = new AbortPolicy();
+        private IRejectedExecutionHandler _rejectedExecutionHandler = new ThreadPoolExecutor.AbortPolicy();
 
         private bool _waitForTasksToCompleteOnShutdown;
 
@@ -155,7 +155,7 @@ namespace Spring.Integration.Util {
         /// the max pool size will only grow once the queue is full).
         /// <p>Default is "false". Note that this feature is only available on Java 6
         /// or above. On Java 5, consider switching to the backport-concurrent
-        /// version of ThreadPoolTaskExecutor which also supports this feature.
+        /// version of ThreadPoolTaskExecutor which also supports this feature.</p>
         /// </summary>
         public bool AllowCoreThreadToTimeOut {
             set { _allowCoreThreadTimeOut = value; }
@@ -166,7 +166,7 @@ namespace Spring.Integration.Util {
         /// Default is <code>Integer.MAX_VALUE</code>.
         /// <p>Any positive value will lead to a LinkedBlockingQueue instance;
         /// any other value will lead to a SynchronousQueue instance.
-        /// @see java.util.concurrent.LinkedBlockingQueue
+        /// @see java.util.concurrent.LinkedBlockingQueue</p>
         /// </summary>
         public int QueueCapacity {
             set { _queueCapacity = value; }
@@ -176,10 +176,10 @@ namespace Spring.Integration.Util {
         /// Set the ThreadFactory to use for the ThreadPoolExecutor's thread pool.
         /// <p>Default is this executor itself (i.e. the factory that this executor
         /// inherits from). See {@link org.springframework.util.CustomizableThreadCreator}'s
-        /// javadoc for available bean properties.
+        /// javadoc for available bean properties.</p>
         /// </summary>
         public IThreadFactory ThreadFactory {
-            set { _threadFactory = (value != null ? value : this); }
+            set { _threadFactory = (value ?? this); }
         }
 
         /// <summary>
@@ -188,14 +188,14 @@ namespace Spring.Integration.Util {
         /// </summary>
         public IRejectedExecutionHandler RejectedExecutionHandler {
             set {
-                _rejectedExecutionHandler = (value != null ? value : new AbortPolicy());
+                _rejectedExecutionHandler = (value ?? new ThreadPoolExecutor.AbortPolicy());
             }
         }
 
         /// <summary>
         /// Set whether to wait for scheduled tasks to complete on shutdown.
         /// <p>Default is "false". Switch this to "true" if you prefer
-        /// fully completed tasks at the expense of a longer shutdown phase.
+        /// fully completed tasks at the expense of a longer shutdown phase.</p>
         /// </summary>
         public bool WaitForTasksToCompleteOnShutdown {
             set { _waitForTasksToCompleteOnShutdown = value; }
@@ -242,7 +242,7 @@ namespace Spring.Integration.Util {
         /// <summary>
         /// Create the BlockingQueue to use for the ThreadPoolExecutor.
         /// <p>A LinkedBlockingQueue instance will be created for a positive
-        /// capacity value; a SynchronousQueue else.
+        /// capacity value; a SynchronousQueue else.</p>
         /// </summary>
         /// <param name="queueCapacity">the specified queue capacity</param>
         /// <returns>the IBlockingQueue instance</returns>

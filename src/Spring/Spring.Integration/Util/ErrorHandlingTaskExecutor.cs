@@ -55,9 +55,9 @@ namespace Spring.Integration.Util {
         public void Execute(IRunnable task) {
             Execute(task.Run);
         }
-
+        
         public void Execute(Action task) {
-            _taskExecutor.Execute(delegate {
+            _taskExecutor.Execute(() => {
                 try {
                     task();
                 }

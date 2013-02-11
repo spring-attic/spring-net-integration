@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\..\build\VS.NET.2012\Spring.Integration\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET_4_0</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\build\VS.NET.2012\Spring.Integration\Debug\Spring.Integration.XML</DocumentationFile>
@@ -273,10 +273,9 @@
     <Compile Include="Xml\IXmlPayloadConverter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Config\Xml\spring-integration-1.0.xsd">
+    <EmbeddedResource Include="Config\Xml\spring-integration-1.0.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Config\Xml\spring-integration-1.0.xsd.complete" />
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
