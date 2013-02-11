@@ -1,0 +1,8 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="build\VS.NET.2008\Spring.Integration.Tests\Debug\Spring.Integration.Tests.dll" />
+    <assembly path="build\VS.NET.2008\Spring.Integration.Nms.Tests\Debug\Spring.Integration.Nms.Tests.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>

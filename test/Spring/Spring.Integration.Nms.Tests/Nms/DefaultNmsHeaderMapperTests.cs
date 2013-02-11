@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using Apache.NMS;
 using Apache.NMS.ActiveMQ.OpenWire;
+using Apache.NMS.Util;
 using NUnit.Framework;
 using Spring.Integration.Message;
 using IMessage=Spring.Integration.Core.IMessage;

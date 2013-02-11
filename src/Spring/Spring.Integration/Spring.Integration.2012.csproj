@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{706AC42E-EA86-4BDD-B856-71362DA3E54E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spring.Integration</RootNamespace>
+    <AssemblyName>Spring.Integration</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\build\VS.NET.2012\Spring.Integration\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\build\VS.NET.2012\Spring.Integration\Debug\Spring.Integration.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Apache.NMS">
+      <HintPath>..\..\..\lib\net\4.0\Apache.NMS.dll</HintPath>
+    </Reference>
+    <Reference Include="Apache.NMS.ActiveMQ">
+      <HintPath>..\..\..\lib\net\4.0\Apache.NMS.ActiveMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\..\lib\net\4.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\..\..\lib\net\4.0\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging.Nms">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Messaging.Nms.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Threading">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Adapter\AbstractRemotingOutboundGateway.cs" />
+    <Compile Include="Adapter\Config\AbstractRemotingGatewayParser.cs" />
+    <Compile Include="Adapter\Config\AbstractRemotingOutboundGatewayParser.cs" />
+    <Compile Include="Adapter\IRemoteMessageHandler.cs" />
+    <Compile Include="Adapter\MessageMappingException.cs" />
+    <Compile Include="Adapter\RemotingInboundGatewaySupport.cs" />
+    <Compile Include="Aggregator\AbstractMessageAggregator.cs" />
+    <Compile Include="Aggregator\AbstractMessageBarrierHandler.cs" />
+    <Compile Include="Aggregator\CompletionStrategyAdapter.cs" />
+    <Compile Include="Aggregator\ICompletionStrategy.cs" />
+    <Compile Include="Aggregator\MessageBarrier.cs" />
+    <Compile Include="Aggregator\MessageListMethodAdapter.cs" />
+    <Compile Include="Aggregator\MessageSequenceComparator.cs" />
+    <Compile Include="Aggregator\MethodInvokingAggregator.cs" />
+    <Compile Include="Aggregator\Resequencer.cs" />
+    <Compile Include="Aggregator\SequenceSizeCompletionStrategy.cs" />
+    <Compile Include="Attributes\AggregatorAttribute.cs" />
+    <Compile Include="Attributes\CompletionStrategyAttribute.cs" />
+    <Compile Include="Attributes\GatewayAttribute.cs" />
+    <Compile Include="Attributes\HeaderAttribute.cs" />
+    <Compile Include="Attributes\HeadersAttribute.cs" />
+    <Compile Include="Attributes\MessageEndpoint.cs" />
+    <Compile Include="Attributes\RouterAttribute.cs" />
+    <Compile Include="Attributes\ServiceActivator.cs" />
+    <Compile Include="Attributes\SplitterAttribute.cs" />
+    <Compile Include="Attributes\TransformerAttribute.cs" />
+    <Compile Include="Channel\AbstractMessageChannel.cs" />
+    <Compile Include="Channel\AbstractPollableChannel.cs" />
+    <Compile Include="Channel\AbstractSubscribableChannel.cs" />
+    <Compile Include="Channel\ChannelPurger.cs" />
+    <Compile Include="Channel\ChannelResolutionException.cs" />
+    <Compile Include="Channel\DirectChannel.cs" />
+    <Compile Include="Channel\IChannelInterceptor.cs" />
+    <Compile Include="Channel\IChannelResolver.cs" />
+    <Compile Include="Channel\Interceptor\ChannelInterceptorAdapter.cs" />
+    <Compile Include="Channel\Interceptor\MessageSelectingInterceptor.cs" />
+    <Compile Include="Channel\Interceptor\WireTap.cs" />
+    <Compile Include="Channel\IPollableChannel.cs" />
+    <Compile Include="Channel\ISubscribableChannel.cs" />
+    <Compile Include="Channel\MapBasedChannelResolver.cs" />
+    <Compile Include="Channel\MessageChannelTemplate.cs" />
+    <Compile Include="Channel\MessagePublishingErrorHandler.cs" />
+    <Compile Include="Channel\NullChannel.cs" />
+    <Compile Include="Channel\ObjectFactoryChannelResolver.cs" />
+    <Compile Include="Channel\PriorityChannel.cs" />
+    <Compile Include="Channel\PublishSubscribeChannel.cs" />
+    <Compile Include="Channel\QueueChannel.cs" />
+    <Compile Include="Channel\RendezvousChannel.cs" />
+    <Compile Include="Channel\ThreadLocalChannel.cs" />
+    <Compile Include="Channel\UIPublishSubscribeChannel.cs" />
+    <Compile Include="Config\AbstractMessageHandlerFactoryObject.cs" />
+    <Compile Include="Config\ConsumerEndpointFactoryObject.cs" />
+    <Compile Include="Config\RouterFactoryObject.cs" />
+    <Compile Include="Config\SourcePollingChannelAdapterFactoryObject.cs" />
+    <Compile Include="Config\SplitterFactoryObject.cs" />
+    <Compile Include="Config\TransformerFactoryObject.cs" />
+    <Compile Include="Config\Xml\AbstractChannelAdapterParser.cs" />
+    <Compile Include="Config\Xml\AbstractChannelParser.cs" />
+    <Compile Include="Config\Xml\AbstractConsumerEndpointParser.cs" />
+    <Compile Include="Config\Xml\AbstractIntegrationNamespaceParser.cs" />
+    <Compile Include="Config\Xml\AbstractOutboundChannelAdapterParser.cs" />
+    <Compile Include="Config\Xml\AbstractPollingInboundChannelAdapterParser.cs" />
+    <Compile Include="Config\Xml\AbstractTransformerParser.cs" />
+    <Compile Include="Config\Xml\AggregatorParser.cs" />
+    <Compile Include="Config\Xml\AnnotationConfigParser.cs" />
+    <Compile Include="Config\Xml\ApplicationEventMulticasterParser.cs" />
+    <Compile Include="Config\Xml\BridgeParser.cs" />
+    <Compile Include="Config\Xml\ChainParser.cs" />
+    <Compile Include="Config\Xml\ChannelInterceptorParser.cs" />
+    <Compile Include="Config\Xml\DefaultConfiguringObjectFactoryPostProcessor.cs" />
+    <Compile Include="Config\Xml\FilterParser.cs" />
+    <Compile Include="Config\Xml\GatewayParser.cs" />
+    <Compile Include="Config\Xml\IntegrationNamespaceParser.cs" />
+    <Compile Include="Config\Xml\IntegrationNamespaceUtils.cs" />
+    <Compile Include="Config\Xml\IObjectDefinitionRegisteringParser.cs" />
+    <Compile Include="Config\Xml\LoggingChannelAdapterParser.cs" />
+    <Compile Include="Config\Xml\MethodInvokingInboundChannelAdapterParser.cs" />
+    <Compile Include="Config\Xml\MethodInvokingOutboundChannelAdapterParser.cs" />
+    <Compile Include="Config\Xml\ObjectToStringTransformerParser.cs" />
+    <Compile Include="Config\Xml\PayloadDeserializingTransformerParser.cs" />
+    <Compile Include="Config\Xml\PayloadSerializingTransformerParser.cs" />
+    <Compile Include="Config\Xml\PointToPointChannelParser.cs" />
+    <Compile Include="Config\Xml\PollerParser.cs" />
+    <Compile Include="Config\Xml\PublishSubscribeChannelParser.cs" />
+    <Compile Include="Config\Xml\ResequencerParser.cs" />
+    <Compile Include="Config\Xml\RouterParser.cs" />
+    <Compile Include="Config\Xml\SelectorChainParser.cs" />
+    <Compile Include="Config\Xml\ServiceActivatorParser.cs" />
+    <Compile Include="Config\Xml\SimpleHeaderEnricherParser.cs" />
+    <Compile Include="Config\Xml\SplitterParser.cs" />
+    <Compile Include="Config\Xml\StandardHeaderEnricherParser.cs" />
+    <Compile Include="Config\Xml\ThreadLocalChannelParser.cs" />
+    <Compile Include="Config\Xml\ThreadPoolTaskExecutorParser.cs" />
+    <Compile Include="Config\Xml\TransformerParser.cs" />
+    <Compile Include="Config\Xml\WireTapParser.cs" />
+    <Compile Include="Context\IntegrationContextUtils.cs" />
+    <Compile Include="Context\IntegrationObjectSupport.cs" />
+    <Compile Include="Core\Generic\IMessage.cs" />
+    <Compile Include="Core\IMessage.cs" />
+    <Compile Include="Core\IMessageChannel.cs" />
+    <Compile Include="Core\MessageHeaders.cs" />
+    <Compile Include="Core\MessagePriority.cs" />
+    <Compile Include="Core\MessagingException.cs" />
+    <Compile Include="Dispatcher\AbstractDispatcher.cs" />
+    <Compile Include="Dispatcher\BroadcastingDispatcher.cs" />
+    <Compile Include="Dispatcher\IMessageDispatcher.cs" />
+    <Compile Include="Dispatcher\SimpleDispatcher.cs" />
+    <Compile Include="Endpoint\AbstractEndpoint.cs" />
+    <Compile Include="Endpoint\AbstractPollingEndpoint.cs" />
+    <Compile Include="Endpoint\EventDrivenConsumer.cs" />
+    <Compile Include="Endpoint\MessageProducerSupport.cs" />
+    <Compile Include="Endpoint\PollingConsumer.cs" />
+    <Compile Include="Endpoint\SourcePollingChannelAdapter.cs" />
+    <Compile Include="Event\ApplicationEventInboundChannelAdapter.cs" />
+    <Compile Include="Event\ApplicationEventPublishingMessageHandler.cs" />
+    <Compile Include="Event\MessagingEvent.cs" />
+    <Compile Include="Filter\MessageFilter.cs" />
+    <Compile Include="Filter\MethodInvokingSelector.cs" />
+    <Compile Include="Gateway\AbstractMessagingGateway.cs" />
+    <Compile Include="Gateway\GatewayProxyFactoryObject.cs" />
+    <Compile Include="Gateway\IMessagingGateway.cs" />
+    <Compile Include="Gateway\SimpleMessageMapper.cs" />
+    <Compile Include="Gateway\SimpleMessagingGateway.cs" />
+    <Compile Include="Handler\AbstractMessageHandler.cs" />
+    <Compile Include="Handler\AbstractReplyProducingMessageHandler.cs" />
+    <Compile Include="Handler\ActionHandler.cs" />
+    <Compile Include="Handler\BridgeHandler.cs" />
+    <Compile Include="Handler\HandlerMethodUtils.cs" />
+    <Compile Include="Handler\IHandlerMethodResolver.cs" />
+    <Compile Include="Handler\LoggingHandler.cs" />
+    <Compile Include="Handler\MessageHandlerChain.cs" />
+    <Compile Include="Handler\MessageMappingMethodInvoker.cs" />
+    <Compile Include="Handler\MethodInvokingMessageHandler.cs" />
+    <Compile Include="Handler\PayloadTypeMatchingHandlerMethodResolver.cs" />
+    <Compile Include="Handler\ReplyMessageHolder.cs" />
+    <Compile Include="Handler\ServiceActivatingHandler.cs" />
+    <Compile Include="Handler\StaticHandlerMethodResolver.cs" />
+    <Compile Include="Handler\UIServiceActivatingHandler.cs" />
+    <Compile Include="Message\ErrorMessage.cs" />
+    <Compile Include="Message\Generic\IInboundMessageMapper.cs" />
+    <Compile Include="Message\Generic\IOutboundMessageMapper.cs" />
+    <Compile Include="Message\Generic\Message.cs" />
+    <Compile Include="Message\IInboundMessageMapper.cs" />
+    <Compile Include="Message\IMessageHandler.cs" />
+    <Compile Include="Message\IMessageSource.cs" />
+    <Compile Include="Message\IOutboundMessageMapper.cs" />
+    <Compile Include="Message\Message.cs" />
+    <Compile Include="Message\MessageBuilder.cs" />
+    <Compile Include="Message\MessageDeliveryException.cs" />
+    <Compile Include="Message\MessageHandlingException.cs" />
+    <Compile Include="Message\MessageRejectedException.cs" />
+    <Compile Include="Message\MessageTimeoutException.cs" />
+    <Compile Include="Message\MethodInvokingMessageSource.cs" />
+    <Compile Include="Message\MethodParameterMessageMapper.cs" />
+    <Compile Include="Message\StringMessage.cs" />
+    <Compile Include="Message\TypeConverters\StringMessageTypeConverter.cs" />
+    <Compile Include="Router\AbstractChannelNameResolvingMessageRouter.cs" />
+    <Compile Include="Router\AbstractMessageRouter.cs" />
+    <Compile Include="Router\AbstractSingleChannelNameRouter.cs" />
+    <Compile Include="Router\AbstractSingleChannelRouter.cs" />
+    <Compile Include="Router\ErrorMessageExceptionTypeRouter.cs" />
+    <Compile Include="Router\MethodInvokingRouter.cs" />
+    <Compile Include="Router\PayloadTypeRouter.cs" />
+    <Compile Include="Router\RecipientListRouter.cs" />
+    <Compile Include="Scheduling\CronTrigger.cs" />
+    <Compile Include="Scheduling\IntervalTrigger.cs" />
+    <Compile Include="Scheduling\ITaskScheduler.cs" />
+    <Compile Include="Scheduling\ITrigger.cs" />
+    <Compile Include="Scheduling\PollerMetadata.cs" />
+    <Compile Include="Scheduling\SchedulingException.cs" />
+    <Compile Include="Scheduling\SimpleTaskScheduler.cs" />
+    <Compile Include="Selector\IMessageSelector.cs" />
+    <Compile Include="Selector\MessageSelector.cs" />
+    <Compile Include="Selector\MessageSelectorChain.cs" />
+    <Compile Include="Selector\PayloadTypeSelector.cs" />
+    <Compile Include="Selector\UnexpiredMessageSelector.cs" />
+    <Compile Include="Splitter\AbstractMessageSplitter.cs" />
+    <Compile Include="Splitter\DefaultMessageSplitter.cs" />
+    <Compile Include="Splitter\MethodInvokingSplitter.cs" />
+    <Compile Include="Transformer\AbstractHeaderTransformer.cs" />
+    <Compile Include="Transformer\AbstractPayloadTransformer.cs" />
+    <Compile Include="Transformer\HeaderEnricher.cs" />
+    <Compile Include="Transformer\ITransformer.cs" />
+    <Compile Include="Transformer\MessageTransformationException.cs" />
+    <Compile Include="Transformer\MessageTransformingChannelInterceptor.cs" />
+    <Compile Include="Transformer\MessageTransformingHandler.cs" />
+    <Compile Include="Transformer\MethodInvokingTransformer.cs" />
+    <Compile Include="Transformer\ObjectToStringTransformer.cs" />
+    <Compile Include="Transformer\PayloadDeserializingTransformer.cs" />
+    <Compile Include="Transformer\PayloadSerializingTransformer.cs" />
+    <Compile Include="Util\CustomizableThreadCreator.cs" />
+    <Compile Include="Util\CustomizableThreadFactory.cs" />
+    <Compile Include="Util\DefaultMethodInvoker.cs" />
+    <Compile Include="Util\DictionaryUtils.cs" />
+    <Compile Include="Util\DomUtils.cs" />
+    <Compile Include="Util\ErrorHandlingTaskExecutor.cs" />
+    <Compile Include="Util\IMethodInvoker.cs" />
+    <Compile Include="Util\IMethodValidator.cs" />
+    <Compile Include="Util\NameResolvingMethodInvoker.cs" />
+    <Compile Include="Util\ThreadPoolTaskExecutor.cs" />
+    <Compile Include="Xml\IXmlPayloadConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Xml\spring-integration-1.0.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

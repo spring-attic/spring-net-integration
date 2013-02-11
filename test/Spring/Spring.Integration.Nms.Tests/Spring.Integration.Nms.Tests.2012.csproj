@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B8C4B28-B2C9-4033-8197-D1D87660D747}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spring.Integration</RootNamespace>
+    <AssemblyName>Spring.Integration.Nms.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\build\VS.NET.2012\Spring.Integration.Nms.Tests\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Apache.NMS">
+      <HintPath>..\..\..\lib\net\4.0\Apache.NMS.dll</HintPath>
+    </Reference>
+    <Reference Include="Apache.NMS.ActiveMQ">
+      <HintPath>..\..\..\lib\net\4.0\Apache.NMS.ActiveMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\..\lib\net\4.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\net\4.0\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging.Nms">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Messaging.Nms.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Testing.NUnit">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Testing.NUnit.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Threading">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\src\Spring\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Nms\ChannelPublishingJmsMessageListenerTests.cs" />
+    <Compile Include="Nms\Config\DefaultConfigurationTests.cs" />
+    <Compile Include="Nms\Config\NmsInboundChannelAdapterParserTests.cs" />
+    <Compile Include="Nms\Config\NmsInboundGatewayParserTests.cs" />
+    <Compile Include="Nms\Config\NmsOutboundChannelAdapterParserTests.cs" />
+    <Compile Include="Nms\Config\NmsOutboundGatewayParserTests.cs" />
+    <Compile Include="Nms\Config\TestMessageConverter.cs" />
+    <Compile Include="Nms\Config\TestNmsHeaderMapper.cs" />
+    <Compile Include="Nms\DefaultNmsHeaderMapperTests.cs" />
+    <Compile Include="Nms\NmsTestUtils.cs" />
+    <Compile Include="Nms\StubConnection.cs" />
+    <Compile Include="Nms\StubConsumer.cs" />
+    <Compile Include="Nms\StubDestination.cs" />
+    <Compile Include="Nms\StubMessageConverter.cs" />
+    <Compile Include="Nms\StubProducer.cs" />
+    <Compile Include="Nms\StubSession.cs" />
+    <Compile Include="Nms\StubTextMessage.cs" />
+    <Compile Include="Nms\ThreadPerTaskExecutor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Nms\Config\DefaultConfigurationTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\InboundGatewayWithContainerReference.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsGatewaysWithExtractPayloadAttributes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsGatewayTransactionManagerTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsGatewayWithConnectionFactoryAndDestination.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsGatewayWithConnectionFactoryAndDestinationName.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsGatewayWithConnectionFactoryOnly.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsGatewayWithContainerSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsGatewayWithDefaultConnectionFactory.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsGatewayWithMessageConverter.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsInboundWithConnectionFactoryAndDestinationName.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsInboundWithConnectionFactoryOnly.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsInboundWithDestinationAndDefaultConnectionFactory.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsInboundWithDestinationNameAndDefaultConnectionFactory.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsInboundWithDestinationNameOnly.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsInboundWithDestinationOnly.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsInboundWithHeaderMapper.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsInboundWithNmsTemplate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsOutboundGatewayWithConverter.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsOutboundGatewayWithOrder.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nms\Config\NmsOutboundWithConnectionFactoryAndDestination.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Spring.Integration.Nms.Tests.dll.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Spring\Spring.Integration.Nms\Spring.Integration.Nms.2012.csproj">
+      <Project>{e064c582-cf5a-447c-ae24-4ca3c36e89a8}</Project>
+      <Name>Spring.Integration.Nms.2012</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Spring\Spring.Integration\Spring.Integration.2012.csproj">
+      <Project>{706ac42e-ea86-4bdd-b856-71362da3e54e}</Project>
+      <Name>Spring.Integration.2012</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spring.Integration.Tests\Spring.Integration.Tests.2012.csproj">
+      <Project>{3e92f2c1-9776-4d33-9b9b-764e8e667302}</Project>
+      <Name>Spring.Integration.Tests.2012</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

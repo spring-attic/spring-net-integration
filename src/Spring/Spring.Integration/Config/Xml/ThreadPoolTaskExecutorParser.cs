@@ -24,7 +24,6 @@ using Spring.Core;
 using Spring.Objects.Factory.Support;
 using Spring.Objects.Factory.Xml;
 using Spring.Threading.Execution;
-using Spring.Threading.Execution.ExecutionPolicy;
 using Spring.Util;
 
 namespace Spring.Integration.Config.Xml {
@@ -33,6 +32,7 @@ namespace Spring.Integration.Config.Xml {
     /// </summary>
     /// <author>Mark Fisher</author>
     /// <author>Andreas Döhring (.NET)</author>
+    /// <author>Anindya Chatterjee (.NET)</author>
     public class ThreadPoolTaskExecutorParser : AbstractSimpleObjectDefinitionParser {
 
         private const string REJECTION_POLICY_ATTRIBUTE = "rejection-policy";
@@ -75,15 +75,15 @@ namespace Spring.Integration.Config.Xml {
 
         private static IRejectedExecutionHandler CreateRejectedExecutionHandler(IEquatable<string> policyName) {
             if(policyName.Equals("ABORT")) {
-                return new AbortPolicy();
+                return new ThreadPoolExecutor.AbortPolicy();
             }
             if(policyName.Equals("DISCARD")) {
-                return new DiscardPolicy();
+                return new ThreadPoolExecutor.DiscardPolicy();
             }
             if(policyName.Equals("DISCARD_OLDEST")) {
-                return new DiscardOldestPolicy();
+                return new ThreadPoolExecutor.DiscardOldestPolicy();
             }
-            return new CallerRunsPolicy();
+            return new ThreadPoolExecutor.CallerRunsPolicy();
         }
     }
 }

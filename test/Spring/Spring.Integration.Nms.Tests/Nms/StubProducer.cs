@@ -110,6 +110,20 @@ namespace Spring.Integration.Nms
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Creates a new stream message
+        /// </summary>
+        public IStreamMessage CreateStreamMessage()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// A delegate that is called each time a Message is sent from this Producer which allows
+        ///             the application to perform any needed transformations on the Message before it is sent.
+        /// </summary>
+        public ProducerTransformerDelegate ProducerTransformer { get; set; }
+
         public MsgDeliveryMode DeliveryMode
         {
             get { throw new NotImplementedException(); }

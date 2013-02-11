@@ -38,7 +38,6 @@ using Spring.Objects.Factory.Xml;
 using Spring.Threading;
 using Spring.Threading.Collections.Generic;
 using Spring.Threading.Execution;
-using Spring.Threading.Execution.ExecutionPolicy;
 using Spring.Util;
 
 #endregion
@@ -113,7 +112,7 @@ namespace Spring.Integration.Tests.Util
         public static ITaskScheduler CreateTaskScheduler(int poolSize)
         {
             ThreadPoolExecutor executor = new ThreadPoolExecutor(
-                poolSize, poolSize, new TimeSpan(0, 0, 10), new LinkedBlockingQueue<IRunnable>(), new CallerRunsPolicy()
+                poolSize, poolSize, new TimeSpan(0, 0, 10), new LinkedBlockingQueue<IRunnable>(), new ThreadPoolExecutor.CallerRunsPolicy()
                 );
             return new SimpleTaskScheduler(executor);
         }
