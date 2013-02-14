@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E92F2C1-9776-4D33-9B9B-764E8E667302}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spring.Integration.Tests</RootNamespace>
+    <AssemblyName>Spring.Integration.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\build\VS.NET.2012\Spring.Integration.Tests\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Apache.NMS">
+      <HintPath>..\..\..\lib\net\4.0\Apache.NMS.dll</HintPath>
+    </Reference>
+    <Reference Include="Apache.NMS.ActiveMQ">
+      <HintPath>..\..\..\lib\net\4.0\Apache.NMS.ActiveMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\..\lib\net\4.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\net\4.0\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\lib\net\4.0\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Testing.NUnit">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Testing.NUnit.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Threading">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\src\Spring\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Channel\ChannelPurgerTests.cs" />
+    <Compile Include="Channel\Config\ChannelParserTests.cs" />
+    <Compile Include="Channel\Config\DirectChannelParserTests.cs" />
+    <Compile Include="Channel\Config\RendezvousChannelParserTests.cs" />
+    <Compile Include="Channel\Config\TestSource.cs" />
+    <Compile Include="Channel\Config\TestTransformer.cs" />
+    <Compile Include="Channel\Config\ThreadLocalChannelParserTests.cs" />
+    <Compile Include="Channel\DirectChannelTests.cs" />
+    <Compile Include="Channel\Interceptor\ChannelInterceptorTests.cs" />
+    <Compile Include="Channel\Interceptor\MessageSelectingInterceptorTests.cs" />
+    <Compile Include="Channel\Interceptor\WireTapTests.cs" />
+    <Compile Include="Channel\MapBasedChannelResolverTests.cs" />
+    <Compile Include="Channel\MessageChannelTemplateTests.cs" />
+    <Compile Include="Channel\MessagePayloadTestComparator.cs" />
+    <Compile Include="Channel\ObjectFactoryChannelResolverTests.cs" />
+    <Compile Include="Channel\PriorityChannelTests.cs" />
+    <Compile Include="Channel\QueueChannelTests.cs" />
+    <Compile Include="Channel\TestChannelResolver.cs" />
+    <Compile Include="Channel\ThreadLocalChannelTests.cs" />
+    <Compile Include="Config\Adder.cs" />
+    <Compile Include="Config\AggregatorParserTests.cs" />
+    <Compile Include="Config\ChainParserTests.cs" />
+    <Compile Include="Config\ChannelAdapterParserTests.cs" />
+    <Compile Include="Config\EndpointParserTests.cs" />
+    <Compile Include="Config\FilterParserTests.cs" />
+    <Compile Include="Config\MaxValueCompletionStrategy.cs" />
+    <Compile Include="Config\MessageBusParserTests.cs" />
+    <Compile Include="Config\PublishSubscribeChannelParserTests.cs" />
+    <Compile Include="Config\ResequencerParserTests.cs" />
+    <Compile Include="Config\SelectorChainParserTests.cs" />
+    <Compile Include="Config\ServiceActivatorAnnotationPostProcessorTests.cs" />
+    <Compile Include="Config\StubMessageSelector.cs" />
+    <Compile Include="Config\StubTaskScheduler.cs" />
+    <Compile Include="Config\TestAggregatorObject.cs" />
+    <Compile Include="Config\TestChannelInterceptor.cs" />
+    <Compile Include="Config\TestCompletionStrategy.cs" />
+    <Compile Include="Config\TestConsumer.cs" />
+    <Compile Include="Config\TestErrorHandler.cs" />
+    <Compile Include="Config\TestHandler.cs" />
+    <Compile Include="Config\TestObject.cs" />
+    <Compile Include="Config\TestSelector.cs" />
+    <Compile Include="Config\WireTapParserTests.cs" />
+    <Compile Include="Config\Xml\BridgeParserTests.cs" />
+    <Compile Include="Config\Xml\GatewayParserTests.cs" />
+    <Compile Include="Config\Xml\ObjectToStringTransformerParserTests.cs" />
+    <Compile Include="Config\Xml\PayloadDeserializingTransformerParserTests.cs" />
+    <Compile Include="Config\Xml\PayloadSerializingTransformerParserTests.cs" />
+    <Compile Include="Config\Xml\PollerParserTests.cs" />
+    <Compile Include="Config\Xml\TestAdviceBean.cs" />
+    <Compile Include="Core\MessageHeadersTests.cs" />
+    <Compile Include="Endpoint\CorrelationIdTests.cs" />
+    <Compile Include="Endpoint\PollingConsumerEndpointTests.cs" />
+    <Compile Include="Endpoint\PollingEndpointErrorHandlingTests.cs" />
+    <Compile Include="Endpoint\PollingEndpointStub.cs" />
+    <Compile Include="Endpoint\ReturnAddressTests.cs" />
+    <Compile Include="Endpoint\ServiceActivatorEndpointTests.cs" />
+    <Compile Include="Endpoint\TestObject.cs" />
+    <Compile Include="Gateway\GatewayProxyFactoryObjectTests.cs" />
+    <Compile Include="Gateway\ITestService.cs" />
+    <Compile Include="Gateway\SimpleMessagingGatewayTests.cs" />
+    <Compile Include="Gateway\TestChannelInterceptor.cs" />
+    <Compile Include="Gateway\TestHandler.cs" />
+    <Compile Include="Handler\HandlerMethodInheritanceTests.cs" />
+    <Compile Include="Handler\MessageHandlerChainTests.cs" />
+    <Compile Include="Handler\MessageMappingMethodInvokerTests.cs" />
+    <Compile Include="Handler\MethodInvokingMessageHandlerTests.cs" />
+    <Compile Include="Handler\PayloadTypeMatchingHandlerMethodResolverTests.cs" />
+    <Compile Include="Handler\PayloadTypeMatchingHandlerMethodResolverWithMessageParameterTests.cs" />
+    <Compile Include="Handler\StaticHandlerMethodResolverTests.cs" />
+    <Compile Include="Message\MessageBuilderTests.cs" />
+    <Compile Include="Message\MessageTests.cs" />
+    <Compile Include="Message\MethodInvokingSourceTests.cs" />
+    <Compile Include="Message\MethodParameterMessageMapperFromMessageTests.cs" />
+    <Compile Include="Message\MethodParameterMessageMapperInitializationTests.cs" />
+    <Compile Include="Message\MethodParameterMessageMapperToMessageTests.cs" />
+    <Compile Include="Message\Selector\PayloadTypeSelectorTests.cs" />
+    <Compile Include="Message\Selector\UnexpiredMessageSelectorTests.cs" />
+    <Compile Include="Message\TestHandlers.cs" />
+    <Compile Include="Util\DefaultMethodInvokerTests.cs" />
+    <Compile Include="Util\NameResolvingMethodInvokerTests.cs" />
+    <Compile Include="Util\TestUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Channel\Config\ChannelInterceptorParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Channel\Config\ChannelParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Channel\Config\ChannelWithoutId.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Channel\Config\DirectChannelParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Channel\Config\PriorityChannelParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Channel\Config\RendezvousChannelParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Channel\Config\threadLocalChannelParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\AggregatorParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\ChainParserTests-context.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\ChannelAdapterParserTests-context.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\CompletionStrategyMethodWithMissingReference.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\FilterParserTests-context.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\InvalidCompletionStrategyMethod.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\InvalidMethodNameAggregator.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\MessageBusWithDefaults.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\MessageBusWithErrorChannel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\MessageBusWithTaskScheduler.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\PublishSubscribeChannelParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\ResequencerParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\SelectorChainParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\SimpleEndpointTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\WireTapParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\BridgeParserTests-context.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\defaultPollerWithId.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\defaultPollerWithoutId.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\GatewayParserTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\multipleDefaultPollers.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\ObjectToStringTransformerParserTests-context.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\PayloadDeserializingTransformerParserTests-context.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\PayloadSerializingTransformerParserTests-context.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\pollerWithAdviceChain.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Xml\topLevelPollerWithoutId.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Endpoint\pollingEndpointErrorHandlingTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Endpoint\returnAddressTests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gateway\gatewayWithRendezvousChannel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gateway\gatewayWithResponseCorrelator.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Spring\Spring.Integration\Spring.Integration.2012.csproj">
+      <Project>{706ac42e-ea86-4bdd-b856-71362da3e54e}</Project>
+      <Name>Spring.Integration.2012</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

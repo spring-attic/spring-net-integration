@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E064C582-CF5A-447C-AE24-4CA3C36E89A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spring.Integration</RootNamespace>
+    <AssemblyName>Spring.Integration.Nms</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\build\VS.NET.2012\Spring.Integration.Nms\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\build\VS.NET.2012\Spring.Integration.Nms\Debug\Spring.Integration.Nms.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Apache.NMS">
+      <HintPath>..\..\..\lib\net\4.0\Apache.NMS.dll</HintPath>
+    </Reference>
+    <Reference Include="Apache.NMS.ActiveMQ">
+      <HintPath>..\..\..\lib\net\4.0\Apache.NMS.ActiveMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\..\lib\net\4.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging.Nms">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Messaging.Nms.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Threading">
+      <HintPath>..\..\..\lib\net\4.0\Spring.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Nms\AbstractNmsTemplateBasedAdapter.cs" />
+    <Compile Include="Nms\ChannelPublishingJmsMessageListener.cs" />
+    <Compile Include="Nms\Config\NmsAdapterParserUtils.cs" />
+    <Compile Include="Nms\Config\NmsInboundChannelAdapterParser.cs" />
+    <Compile Include="Nms\Config\NmsMessageDrivenEndpointParser.cs" />
+    <Compile Include="Nms\Config\NmsNamespaceParser.cs" />
+    <Compile Include="Nms\Config\NmsOutboundChannelAdapterParser.cs" />
+    <Compile Include="Nms\Config\NmsOutboundGatewayParser.cs" />
+    <Compile Include="Nms\DefaultNmsHeaderMapper.cs" />
+    <Compile Include="Nms\HeaderMappingMessageConverter.cs" />
+    <Compile Include="Nms\INmsHeaderMapper.cs" />
+    <Compile Include="Nms\NmsDestinationPollingSource.cs" />
+    <Compile Include="Nms\NmsHeaders.cs" />
+    <Compile Include="Nms\NmsMessageDrivenEndpoint.cs" />
+    <Compile Include="Nms\NmsOutboundGateway.cs" />
+    <Compile Include="Nms\NmsSendingMessageHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Nms\Config\spring-integration-nms-1.0.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Spring.Integration\Spring.Integration.2012.csproj">
+      <Project>{706ac42e-ea86-4bdd-b856-71362da3e54e}</Project>
+      <Name>Spring.Integration.2012</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

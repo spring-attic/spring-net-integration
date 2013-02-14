@@ -28,6 +28,7 @@ namespace Spring.Integration.Scheduling {
     /// </summary>
     /// <author>Mark Fisher</author>
     /// <author>Andreas Döhring (.NET)</author>
+    /// <author>Anindya Chatterjee (.NET)</author>
     public class CronTrigger : ITrigger {
 
         private readonly string _expression;
@@ -54,7 +55,20 @@ namespace Spring.Integration.Scheduling {
         public DateTime GetNextRunTime(DateTime lastScheduledRunTime, DateTime lastCompleteTime) {
             DateTime dateTime = (lastCompleteTime != default(DateTime)) ? lastCompleteTime : DateTime.Now;
 
-            Nullable<DateTime> newDateTime = _cronExpression.GetNextValidTimeAfter(dateTime);
+            DateTime? newDateTime;
+
+            DateTimeOffset? offset = _cronExpression.GetNextValidTimeAfter(dateTime);
+            if(offset.HasValue)
+            {
+                DateTimeOffset value = offset.Value;
+                DateTime dateTimeValue = value.DateTime;
+                newDateTime = dateTimeValue;
+            }
+            else
+            {
+                newDateTime = default(DateTime?);
+            }
+            
 
             if(!newDateTime.HasValue)
                 throw new ArgumentException(dateTime + " has no next value matching the pattern [" + _expression + "]");

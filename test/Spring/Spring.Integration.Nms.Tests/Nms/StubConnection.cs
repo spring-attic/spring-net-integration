@@ -83,6 +83,22 @@ namespace Spring.Integration.Nms
 
         }
 
+        /// <summary>
+        /// A Delegate that is called each time a Message is dispatched to allow the client to do
+        ///             any necessary transformations on the received message before it is delivered.  The
+        ///             Connection sets the provided delegate instance on each Session it creates which then
+        ///             passes that along to the Consumers it creates.
+        /// </summary>
+        public ConsumerTransformerDelegate ConsumerTransformer { get; set; }
+
+        /// <summary>
+        /// A delegate that is called each time a Message is sent from this Producer which allows
+        ///             the application to perform any needed transformations on the Message before it is sent.
+        ///             The Connection sets the provided delegate instance on each Session it creates which then
+        ///             passes that along to the Producer it creates.
+        /// </summary>
+        public ProducerTransformerDelegate ProducerTransformer { get; set; }
+
         public TimeSpan RequestTimeout
         {
             get { return TimeSpan.FromMilliseconds(0); }
@@ -101,7 +117,18 @@ namespace Spring.Integration.Nms
             set {  }
         }
 
+        /// <summary>
+        /// Get/or set the redelivery policy for this connection.
+        /// </summary>
+        public IRedeliveryPolicy RedeliveryPolicy { get; set; }
+
+        /// <summary>
+        /// Gets the Meta Data for the NMS Connection instance.
+        /// </summary>
+        public IConnectionMetaData MetaData { get; private set; }
         public event ExceptionListener ExceptionListener;
+        public event ConnectionInterruptedListener ConnectionInterruptedListener;
+        public event ConnectionResumedListener ConnectionResumedListener;
 
         #endregion
     }

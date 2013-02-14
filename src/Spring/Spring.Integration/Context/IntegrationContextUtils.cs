@@ -27,12 +27,16 @@ using Spring.Threading;
 using Spring.Threading.Collections;
 using Spring.Threading.Collections.Generic;
 using Spring.Threading.Execution;
-using Spring.Threading.Execution.ExecutionPolicy;
 using Spring.Util;
 
 namespace Spring.Integration.Context {
+
+    /// <summary>
+    /// 
+    /// </summary>
     /// <author>Mark Fisher</author>
     /// <author>Andreas Döhring (.NET)</author>
+    /// <author>Anindya Chatterjee (.NET)</author>
     public abstract class IntegrationContextUtils {
         public const string TaskSchedulerObjectName = "taskScheduler";
 
@@ -72,7 +76,7 @@ namespace Spring.Integration.Context {
                 return null;
             }
             object obj = objectFactory.GetObject(objectName);
-            AssertUtils.State(typeof(T).IsAssignableFrom(obj.GetType()), "incorrect type for object '" + objectName
+            AssertUtils.State(obj is T, "incorrect type for object '" + objectName
                         + "' expected [" + typeof(T) + "], but actual type is [" + obj.GetType() + "].");
 
             return (T)obj;
@@ -82,13 +86,13 @@ namespace Spring.Integration.Context {
         {
             
             IBlockingQueue<IRunnable> queue = queueCapacity > 0 ? new LinkedBlockingQueue<IRunnable>(queueCapacity) : new LinkedBlockingQueue<IRunnable>();
-            ThreadPoolExecutor executor = new ThreadPoolExecutor(coreSize, maxSize, TimeSpan.Zero, queue);
+            var executor = new ThreadPoolExecutor(coreSize, maxSize, TimeSpan.Zero, queue);
             if(StringUtils.HasText(threadPrefix)) {
                 // TODO new CustomizableThreadFactory(threadPrefix);
                 //executor.ThreadFactory = new CustomizableThreadFactory(threadPrefix);
             }
 
-            executor.RejectedExecutionHandler = new CallerRunsPolicy();
+            executor.RejectedExecutionHandler = new ThreadPoolExecutor.CallerRunsPolicy();
             // TODO executor.AfterPropertiesSet();
             return executor;
             
