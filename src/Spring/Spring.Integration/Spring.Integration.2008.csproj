@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -175,9 +176,12 @@
     <Compile Include="Config\Xml\WireTapParser.cs" />
     <Compile Include="Context\IntegrationContextUtils.cs" />
     <Compile Include="Context\IntegrationObjectSupport.cs" />
-    <Compile Include="Channel\Core\Generic\IMessage.cs" />
-    <Compile Include="Channel\Core\IMessageChannel.cs" />
-    <Compile Include="Channel\Core\MessagingException.cs" />
+    <Compile Include="Core\Generic\IMessage.cs" />
+    <Compile Include="Core\IMessage.cs" />
+    <Compile Include="Core\IMessageChannel.cs" />
+    <Compile Include="Core\MessageHeaders.cs" />
+    <Compile Include="Core\MessagePriority.cs" />
+    <Compile Include="Core\MessagingException.cs" />
     <Compile Include="Dispatcher\AbstractDispatcher.cs" />
     <Compile Include="Dispatcher\BroadcastingDispatcher.cs" />
     <Compile Include="Dispatcher\IMessageDispatcher.cs" />
@@ -223,10 +227,7 @@
     <Compile Include="Message\IMessageSource.cs" />
     <Compile Include="Message\IOutboundMessageMapper.cs" />
     <Compile Include="Message\Message.cs" />
-    <Compile Include="Channel\Core\IMessage.cs" />
     <Compile Include="Message\MessageBuilder.cs" />
-    <Compile Include="Channel\Core\MessageHeaders.cs" />
-    <Compile Include="Channel\Core\MessagePriority.cs" />
     <Compile Include="Message\MessageDeliveryException.cs" />
     <Compile Include="Message\MessageHandlingException.cs" />
     <Compile Include="Message\MessageRejectedException.cs" />
@@ -286,6 +287,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\Xml\spring-integration-1.0.xsd.complete" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core" />
+    <Folder Include="Core\Generic" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

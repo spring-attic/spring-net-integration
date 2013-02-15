@@ -96,10 +96,22 @@ namespace Spring.Integration.Nms
             set { correlationId = value; }
         }
 
+        #if !NET_2_0
+        
         /// <summary>
         /// The destination of the message.  This property is set by the IMessageProducer.
         /// </summary>
         IDestination IMessage.NMSDestination { get; set; }
+        
+        #else
+        
+        /// <summary>
+        /// The destination of the message.  This property is set by the IMessageProducer.
+        /// </summary>
+        IDestination IMessage.NMSDestination { get {return null;} }
+        
+        #endif
+        
 
         public IDestination NMSDestination
         {
@@ -130,10 +142,18 @@ namespace Spring.Integration.Nms
             set {  }
         }
 
+        #if !NET_2_0
+        
         /// <summary>
         /// Returns true if this message has been redelivered to this or another consumer before being acknowledged successfully.
         /// </summary>
         bool IMessage.NMSRedelivered { get; set; }
+        
+        #else
+        
+        bool IMessage.NMSRedelivered { get {return default(bool);} }
+        
+        #endif
 
         public bool NMSRedelivered
         {
@@ -146,11 +166,19 @@ namespace Spring.Integration.Nms
             set { replyTo = value; }
         }
 
+        #if !NET_2_0
+        
         /// <summary>
         /// The timestamp of when the message was pubished in UTC time.  If the publisher disables setting
         ///             the timestamp on the message, the time will be set to the start of the UNIX epoc (1970-01-01 00:00:00).
         /// </summary>
         DateTime IMessage.NMSTimestamp { get; set; }
+        
+        #else
+        
+        DateTime IMessage.NMSTimestamp { get {return default(DateTime);} }
+        
+        #endif
 
         public DateTime NMSTimestamp
         {

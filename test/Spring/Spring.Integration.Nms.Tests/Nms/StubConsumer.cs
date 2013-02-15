@@ -67,11 +67,15 @@ namespace Spring.Integration.Nms
 
         }
 
+        #if !NET_2_0
+        
         /// <summary>
         /// A Delegate that is called each time a Message is dispatched to allow the client to do
         ///             any necessary transformations on the received message before it is delivered.
         /// </summary>
         public ConsumerTransformerDelegate ConsumerTransformer { get; set; }
+        
+        #endif
 
         public event MessageListener Listener;
 

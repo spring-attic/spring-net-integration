@@ -109,6 +109,8 @@ namespace Spring.Integration.Nms
         {
             throw new NotImplementedException();
         }
+        
+        #if !NET_2_0
 
         /// <summary>
         /// Creates a new stream message
@@ -123,6 +125,8 @@ namespace Spring.Integration.Nms
         ///             the application to perform any needed transformations on the Message before it is sent.
         /// </summary>
         public ProducerTransformerDelegate ProducerTransformer { get; set; }
+        
+        #endif
 
         public MsgDeliveryMode DeliveryMode
         {
