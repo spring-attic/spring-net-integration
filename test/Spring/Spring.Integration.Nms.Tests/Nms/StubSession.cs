@@ -85,36 +85,7 @@ namespace Spring.Integration.Nms
         {
             
         }
-
-        /// <summary>
-        /// Creates a QueueBrowser object to peek at the messages on the specified queue.
-        /// </summary>
-        /// <param name="queue">A <see cref="T:Apache.NMS.IQueue"/></param>
-        /// <returns>
-        /// A <see cref="T:Apache.NMS.IQueueBrowser"/>
-        /// </returns>
-        /// <exception cref="T:System.NotSupportedException">If the Prodiver does not support creation of Queue Browsers.
-        ///             </exception>
-        public IQueueBrowser CreateBrowser(IQueue queue)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Creates a QueueBrowser object to peek at the messages on the specified queue
-        ///             using a message selector.
-        /// </summary>
-        /// <param name="queue">A <see cref="T:Apache.NMS.IQueue"/></param><param name="selector">A <see cref="T:System.String"/></param>
-        /// <returns>
-        /// A <see cref="T:Apache.NMS.IQueueBrowser"/>
-        /// </returns>
-        /// <exception cref="T:System.NotSupportedException">If the Prodiver does not support creation of Queue Browsers.
-        ///             </exception>
-        public IQueueBrowser CreateBrowser(IQueue queue, string selector)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public IQueue GetQueue(string name)
         {
             return null;
@@ -174,15 +145,7 @@ namespace Spring.Integration.Nms
         {
             return null;
         }
-
-        /// <summary>
-        /// Creates a new stream message
-        /// </summary>
-        public IStreamMessage CreateStreamMessage()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void Close()
         {
         }
@@ -193,6 +156,45 @@ namespace Spring.Integration.Nms
 
         public void Rollback()
         {
+        }
+        
+        #if !NET_2_0
+        
+        /// <summary>
+        /// Creates a new stream message
+        /// </summary>
+        public IStreamMessage CreateStreamMessage()
+        {
+            throw new NotImplementedException();
+        }
+        
+        /// <summary>
+        /// Creates a QueueBrowser object to peek at the messages on the specified queue.
+        /// </summary>
+        /// <param name="queue">A <see cref="T:Apache.NMS.IQueue"/></param>
+        /// <returns>
+        /// A <see cref="T:Apache.NMS.IQueueBrowser"/>
+        /// </returns>
+        /// <exception cref="T:System.NotSupportedException">If the Prodiver does not support creation of Queue Browsers.
+        ///             </exception>
+        public IQueueBrowser CreateBrowser(IQueue queue)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Creates a QueueBrowser object to peek at the messages on the specified queue
+        ///             using a message selector.
+        /// </summary>
+        /// <param name="queue">A <see cref="T:Apache.NMS.IQueue"/></param><param name="selector">A <see cref="T:System.String"/></param>
+        /// <returns>
+        /// A <see cref="T:Apache.NMS.IQueueBrowser"/>
+        /// </returns>
+        /// <exception cref="T:System.NotSupportedException">If the Prodiver does not support creation of Queue Browsers.
+        ///             </exception>
+        public IQueueBrowser CreateBrowser(IQueue queue, string selector)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -208,6 +210,8 @@ namespace Spring.Integration.Nms
         ///             The Session instance sets the delegate on each Producer it creates.
         /// </summary>
         public ProducerTransformerDelegate ProducerTransformer { get; set; }
+        
+        #endif
 
         public TimeSpan RequestTimeout
         {

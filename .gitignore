@@ -47,3 +47,6 @@ log.txt*
 # XMLmind temporary files
 *.xml~
 
+#nunit
+*.VisualState.xml
+TestResult.xml

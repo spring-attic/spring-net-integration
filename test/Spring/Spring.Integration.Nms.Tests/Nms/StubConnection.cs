@@ -82,6 +82,8 @@ namespace Spring.Integration.Nms
         {
 
         }
+        
+        #if !NET_2_0
 
         /// <summary>
         /// A Delegate that is called each time a Message is dispatched to allow the client to do
@@ -98,6 +100,21 @@ namespace Spring.Integration.Nms
         ///             passes that along to the Producer it creates.
         /// </summary>
         public ProducerTransformerDelegate ProducerTransformer { get; set; }
+        
+        /// <summary>
+        /// Get/or set the redelivery policy for this connection.
+        /// </summary>
+        public IRedeliveryPolicy RedeliveryPolicy { get; set; }
+
+        /// <summary>
+        /// Gets the Meta Data for the NMS Connection instance.
+        /// </summary>
+        public IConnectionMetaData MetaData { get; private set; }
+        
+        public event ConnectionInterruptedListener ConnectionInterruptedListener;
+        public event ConnectionResumedListener ConnectionResumedListener;
+        
+        #endif
 
         public TimeSpan RequestTimeout
         {
@@ -117,18 +134,9 @@ namespace Spring.Integration.Nms
             set {  }
         }
 
-        /// <summary>
-        /// Get/or set the redelivery policy for this connection.
-        /// </summary>
-        public IRedeliveryPolicy RedeliveryPolicy { get; set; }
-
-        /// <summary>
-        /// Gets the Meta Data for the NMS Connection instance.
-        /// </summary>
-        public IConnectionMetaData MetaData { get; private set; }
+        
         public event ExceptionListener ExceptionListener;
-        public event ConnectionInterruptedListener ConnectionInterruptedListener;
-        public event ConnectionResumedListener ConnectionResumedListener;
+        
 
         #endregion
     }
