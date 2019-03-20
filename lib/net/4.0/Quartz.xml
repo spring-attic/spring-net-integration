@@ -19125,7 +19125,7 @@
             <summary>
             A time source for Quartz.NET that returns the current time.
             Original idea by Ayende Rahien:
-            http://ayende.com/Blog/archive/2008/07/07/Dealing-with-time-in-tests.aspx
+            https://ayende.com/Blog/archive/2008/07/07/Dealing-with-time-in-tests.aspx
             </summary>
         </member>
         <member name="F:Quartz.SystemTime.UtcNow">
