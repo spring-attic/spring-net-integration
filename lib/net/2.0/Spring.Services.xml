@@ -1560,7 +1560,7 @@
             Web Services Description Language (WSDL).
             </summary>
             <value>
-            The WSDL namespace of the &lt;portType&gt; element. The default value is "http://tempuri.org".
+            The WSDL namespace of the &lt;portType&gt; element. The default value is "https://www.bing.com/".
             </value>
         </member>
         <member name="P:Spring.ServiceModel.ServiceExporter.ConfigurationName">

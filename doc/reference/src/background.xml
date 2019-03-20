@@ -84,7 +84,7 @@
       based upon well-defined strategy interfaces and non-invasive, delegating
       adapters. Spring Integration's design is inspired by the recognition of
       a strong affinity between common patterns within Spring and the
-      well-known <link ns6:href="http://www.eaipatterns.com/">Enterprise
+      well-known <link ns6:href="https://www.enterpriseintegrationpatterns.com/">Enterprise
       Integration Patterns</link> as described in the book of the same name by
       Gregor Hohpe and Bobby Woolf (Addison Wesley, 2004). Developers who have
       read that book should be immediately comfortable with the Spring
