@@ -63,7 +63,7 @@ namespace Spring.Integration.Dispatcher {
                 IExecutor executor = TaskExecutor;
                 if(executor != null) {
                     // copy to local variable, because C# does not have real lexical closures. 
-                    // see http://blogs.msdn.com/abhinaba/archive/2005/10/18/482180.aspx for an 
+                    // see https://blogs.msdn.com/abhinaba/archive/2005/10/18/482180.aspx for an 
                     // explanation
                     IMessageHandler closure = handler;
                     executor.Execute(delegate { SendMessageToHandler(messageToSend, closure); });

@@ -18495,9 +18495,9 @@
             <p>
             The algorithms are minor variants of those used
             in <A href="http://supertech.lcs.mit.edu/cilk/"> Cilk</A> and
-            <A href="http://www.cs.utexas.edu/users/hood/"> Hood</A>, and
+            <A href="https://www.cs.utexas.edu/users/hood/"> Hood</A>, and
             to a lesser extent 
-            <A href="http://www.cs.uga.edu/~dkl/filaments/dist.html"> Filaments</A>,
+            <A href="http://cobweb.cs.uga.edu/~dkl/filaments/dist.html"> Filaments</A>,
             but are adapted to work in Java.
             </p>
             <p>
@@ -23529,7 +23529,7 @@
             operations, <code>take</code> relies on spin-loops, which can be
             extremely wasteful.  </p>
             <p>
-            This class is adapted from the algorithm described in <a href="http://www.cs.rochester.edu/u/michael/PODC96.html"> Simple,
+            This class is adapted from the algorithm described in <a href="https://www.cs.rochester.edu/u/michael/PODC96.html"> Simple,
             Fast, and Practical Non-Blocking and Blocking Concurrent Queue
             Algorithms</a> by Maged M. Michael and Michael L. Scott.  This
             implementation is not strictly wait-free since it relies on locking
