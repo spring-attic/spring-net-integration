@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -39,7 +39,7 @@ namespace Spring.Integration.Attributes {
     /// to resolve each channel name with the Channel Registry.
     /// </summary>
     /// <author>Mark Fisher</author>
-    /// <author>Andreas Döhring (.NET)</author>
+    /// <author>Andreas Dï¿½hring (.NET)</author>
     [AttributeUsage(AttributeTargets.Method)]
     public class RouterAttribute : Attribute {
         private string _inputChannel = String.Empty;

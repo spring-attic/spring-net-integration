@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,7 +23,7 @@ namespace Spring.Integration.Util {
     /// <summary>
     /// utility class for <see cref="Dictionary{TKey,TValue}"/>
     /// </summary>
-    /// <author>Andreas Döhring (.NET)</author>
+    /// <author>Andreas Dï¿½hring (.NET)</author>
     public class DictionaryUtils {
         /// <summary>
         /// Associates the specified value with the specified key in this map. If the map previously contained a mapping for this key, the old value is replaced. 
