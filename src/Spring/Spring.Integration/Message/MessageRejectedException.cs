@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ namespace Spring.Integration.Message {
     /// Exception that indicates a message has been rejected by a selector.
     /// </summary>
     /// <author>Mark Fisher</author>
-    /// <author>Andreas Döhring (.NET)</author>
+    /// <author>Andreas Dï¿½hring (.NET)</author>
     public class MessageRejectedException : MessageHandlingException {
 
         /// <summary>

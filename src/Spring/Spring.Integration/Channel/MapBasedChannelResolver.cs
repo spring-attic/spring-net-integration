@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,7 +29,7 @@ namespace Spring.Integration.Channel {
     /// instances by matching the channel name against keys within a Map.
     /// </summary>
     /// <author>Mark Fisher</author>
-    /// <author>Andreas Döhring (.NET)</author>
+    /// <author>Andreas Dï¿½hring (.NET)</author>
     public class MapBasedChannelResolver : IChannelResolver {
 
         private volatile IDictionary<string, IMessageChannel> _channelMap = new Dictionary<string, IMessageChannel>();
