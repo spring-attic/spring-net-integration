@@ -1,3 +1,5 @@
+# spring-net-integration is no longer actively maintained by VMware, Inc.
+
 spring-net-integration
 ======================
 
